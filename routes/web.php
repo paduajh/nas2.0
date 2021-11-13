@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('admin/marca', 'PreCadastro\marca@index')->name('marca.index');
+Route::get('admin/marca', 'PreCadastro\marcaController@index')->name('marca.index');
 
 Route::get('/', function () {
     return view('welcome');
