@@ -3,7 +3,7 @@
 @section('title', 'Planos')
 
 @section('content_header')
-    <h1>Marcas</h1>
+    <h1>Marcas <a href="{{route('marcas.create')}}" class="btn btn-dark">Cadastrar</a></h1>
 @stop
 
 @section('content')
@@ -35,6 +35,10 @@
                         </tr>
                     @endforeach
                 </tbody>
+            </table>
+        </div>
+        <div class="card-footer">
+            {!! $marcas->links("pagination::bootstrap-4") !!}
         </div>
     </div>
 @stop
