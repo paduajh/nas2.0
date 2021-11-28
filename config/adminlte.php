@@ -238,7 +238,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Marca',
-                    'url'  => 'admin/marca',
+                    'url'  => 'admin/marcas',
                     'icon' => 'fas fa-car',
                 ],
                 [

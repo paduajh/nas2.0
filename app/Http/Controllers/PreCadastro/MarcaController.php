@@ -41,4 +41,18 @@ class MarcaController extends Controller
         return redirect()->route('marcas.index');
     }
 
+
+    public function show($url)
+    {
+        $marca = $this->repository->where('url', $url)->first ();
+        
+        //dd($marca ->all());
+        if(!$marca)
+            return redirect()->back();
+        return view('admin.precadastro.marcas.show', [
+            'marca'=>$marca
+        ]);
+
+    }
+
 }

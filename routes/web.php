@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('admin/marcas', 'Precadastro\marcaController@store')->name('marcas.store');
 Route::get('admin/marcas/create', 'PreCadastro\marcaController@create')->name('marcas.create');
+Route::get('admin/marcas/{url}','PreCadastro\marcaController@show')->name('marcas.show');
+Route::post('admin/marcas', 'Precadastro\marcaController@store')->name('marcas.store');
 Route::get('admin/marcas', 'PreCadastro\marcaController@index')->name('marcas.index');
 
 Route::get('/', function () {

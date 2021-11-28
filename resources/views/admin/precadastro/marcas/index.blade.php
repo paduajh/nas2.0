@@ -30,7 +30,7 @@
                                 {{ $marca->name }}
                             </td>
                             <td>
-                                <a href="" class="btn btn-warning"> Ver </a>
+                                <a href="{{route('marcas.show',$marca->url)}}" class="btn btn-warning"> Ver </a>
                             </td>
                         </tr>
                     @endforeach
