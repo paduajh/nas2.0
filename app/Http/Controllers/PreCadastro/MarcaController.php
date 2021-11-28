@@ -52,7 +52,15 @@ class MarcaController extends Controller
         return view('admin.precadastro.marcas.show', [
             'marca'=>$marca
         ]);
+    }
+    public function destroy($url)
+    {
+        $marca = $this->repository->where('url', $url)->first();
+        if(!$marca)
+            return redirect()->back();
+        $marca->delete();
 
+        return redirect()->route('marcas.index');
     }
 
 }

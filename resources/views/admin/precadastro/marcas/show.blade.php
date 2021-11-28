@@ -16,8 +16,16 @@
             <li>
                 <strong>URL:</strong> {{$marca->url}}
             </li>
-        
-        <br><a href="{{ route('marcas.index')}}" class="btn btn-primary">Voltar</a>
+        </ul>
+      
+        <ul>
+            <form action="{{ route('marcas.destroy',$marca->url) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <a href="{{ route('marcas.index')}}" class="btn btn-primary">Voltar</a>
+            <button type="submit" class="btn btn-danger">Deletar</button>
+            </form>
+        </ul>
     </div>
 </div>
 @endsection
