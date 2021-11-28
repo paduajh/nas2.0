@@ -53,6 +53,7 @@ class MarcaController extends Controller
             'marca'=>$marca
         ]);
     }
+
     public function destroy($url)
     {
         $marca = $this->repository->where('url', $url)->first();
@@ -61,6 +62,17 @@ class MarcaController extends Controller
         $marca->delete();
 
         return redirect()->route('marcas.index');
+    }
+
+    public function search(Request $request)
+    {
+        $filters = $request->except('_token');
+        $marcas = $this->repository->search($request->filter);
+
+        return view('admin.precadastro.marcas.index',[
+            'marcas' => $marcas,
+            'filters'=> $filters,
+        ]);
     }
 
 }

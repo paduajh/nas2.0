@@ -9,7 +9,11 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            #filtros
+           <form action="{{ route('marcas.search') }}" method="POST" class="form form-inline">
+            @csrf
+            <input type="text" name="filter" placeholder="pesquise por..."class="form-control" value="{{ $filters['filter'] ?? '' }}">
+            <button type="submit" class="btn btn-dark">Filtrar</button>       
+        </form>
         </div>
         <div class="card-body">
             <table class="table table-condensed">
@@ -38,7 +42,12 @@
             </table>
         </div>
         <div class="card-footer">
-            {!! $marcas->links("pagination::bootstrap-4") !!}
+            @if (isset($filters))
+            {!! $marcas->appends($filters)->links("pagination::bootstrap-4") !!}
+            
+            @else
+            {!! $marcas->links("pagination::bootstrap-4") !!}                
+            @endif
         </div>
     </div>
 @stop

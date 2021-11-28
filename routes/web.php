@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('admin/marcas/create', 'PreCadastro\marcaController@create')->name('marcas.create');
+Route::any('admin/marcas/search', 'PreCadastro\marcaController@search')->name('marcas.search');
 Route::get('admin/marcas/{url}','PreCadastro\marcaController@show')->name('marcas.show');
 Route::delete('admin/marcas/{url}','PreCadastro\marcaController@destroy')->name('marcas.destroy');
 Route::post('admin/marcas', 'Precadastro\marcaController@store')->name('marcas.store');
