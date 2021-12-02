@@ -74,5 +74,26 @@ class MarcaController extends Controller
             'filters'=> $filters,
         ]);
     }
+    public function edit ($url)
+    {
+        $marca = $this->repository->where('url', $url)->first();
+        if(!$marca)
+            return redirect()->back();
+        
+        return view('admin.precadastro.marcas.edit',[
+            'marca'=> $marca,
+        ]);
+    }
+
+    public function update(Request $request, $url)
+    {
+        $marca = $this->repository->where('url', $url)->first();
+        if(!$marca)
+            return redirect()->back();
+
+            $marca->update($request->all());
+
+            return redirect()->route('marcas.index');
+    }
 
 }

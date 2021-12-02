@@ -4,6 +4,11 @@
 
 @section('content_header')
     <h1>Marcas <a href="{{route('marcas.create')}}" class="btn btn-dark">Cadastrar</a></h1>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Dashboard</a></li>
+    <li class="breadcrumb-item"><a href="{{ route ('marcas.index') }}">Marcas</a></li>
+</ol>
+
 @stop
 
 @section('content')
@@ -21,7 +26,7 @@
                     <tr>
                         <th>Id</th>
                         <th>Nome</th>
-                        <th width ="50">Ações</th>
+                        <th width ="150">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,7 +39,8 @@
                                 {{ $marca->name }}
                             </td>
                             <td>
-                                <a href="{{route('marcas.show',$marca->url)}}" class="btn btn-warning"> Ver </a>
+                                <a href="{{route('marcas.show',$marca->url)}}" class="btn btn-warning">Ver</a>
+                                <a href="{{route('marcas.edit',$marca->url)}}" class="btn btn-success">Editar</a>
                             </td>
                         </tr>
                     @endforeach

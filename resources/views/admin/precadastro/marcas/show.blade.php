@@ -13,9 +13,6 @@
             <li>
                 <strong>Nome:</strong> {{$marca->name}}
             </li>
-            <li>
-                <strong>URL:</strong> {{$marca->url}}
-            </li>
         </ul>
       
         <ul>
@@ -23,6 +20,7 @@
             @csrf
             @method('DELETE')
             <a href="{{ route('marcas.index')}}" class="btn btn-primary">Voltar</a>
+            <a href="{{route('marcas.edit',$marca->url)}}" class="btn btn-success">Editar</a>
             <button type="submit" class="btn btn-danger">Deletar</button>
             </form>
         </ul>
