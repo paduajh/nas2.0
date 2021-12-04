@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\PreCadastro;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUpdateMarca;
 use Illuminate\Support\Str;
 use App\Models\PreCadastro\Marca;
 use Illuminate\Http\Request;
@@ -31,7 +32,7 @@ class MarcaController extends Controller
         return view('admin.precadastro.marcas.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreUpdateMarca $request)
     {
         //dd ($request->all()); chegou aqui.
         $data = $request->all();
@@ -85,7 +86,7 @@ class MarcaController extends Controller
         ]);
     }
 
-    public function update(Request $request, $url)
+    public function update(StoreUpdateMarca $request, $url)
     {
         $marca = $this->repository->where('url', $url)->first();
         if(!$marca)

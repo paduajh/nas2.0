@@ -12,14 +12,7 @@
             <form action="{{ route('marcas.store') }}" class="form" method="POST">
                 @csrf
 
-                <div class="form-group">
-                    <label>Nome:</label>
-                    <input type="text" name="name" class="form-control" placeholder="Nome:" >
-                </div>
-                
-                <div class="form-group">
-                    <button type="submit" class="btn btn-dark">Enviar</button>
-                </div>
+                @include('admin.precadastro.marcas._partials.form')
             </form>
         </div>
     </div>
