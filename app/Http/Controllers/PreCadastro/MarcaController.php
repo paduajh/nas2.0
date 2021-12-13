@@ -43,11 +43,10 @@ class MarcaController extends Controller
     {
         $marca = $this->repository->where('url', $url)->first ();
         
-        //dd($marca ->all());
         if(!$marca)
             return redirect()->back();
         return view('admin.precadastro.marcas.show', [
-            'marca'=>$marca
+            'marca'=> $marca
         ]);
     }
 

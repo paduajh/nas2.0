@@ -243,7 +243,7 @@ return [
                 ],
                 [
                     'text' => 'Modelo',
-                    'url'  => '#',
+                    'url'  => 'admin/modelos',
                     'icon' => 'fas fa-caravan',
                 ],
                 [

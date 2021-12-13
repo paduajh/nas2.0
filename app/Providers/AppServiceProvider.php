@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Models\PreCadastro\Marca;
+use App\Models\PreCadastro\Modelo;
 use App\Observers\MarcaObserver;
+use App\Observers\ModeloObserver;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 
@@ -27,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Marca::observe(MarcaObserver::class);
+        Modelo::observe(ModeloObserver::class);
 
         Schema::defaultStringLength(191);
     }
