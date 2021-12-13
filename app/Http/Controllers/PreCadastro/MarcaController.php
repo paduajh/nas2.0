@@ -4,7 +4,6 @@ namespace App\Http\Controllers\PreCadastro;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateMarca;
-use Illuminate\Support\Str;
 use App\Models\PreCadastro\Marca;
 use Illuminate\Http\Request;
 
@@ -34,10 +33,7 @@ class MarcaController extends Controller
 
     public function store(StoreUpdateMarca $request)
     {
-        //dd ($request->all()); chegou aqui.
-        $data = $request->all();
-        $data['url'] = Str::kebab($request->name);
-        $this->repository->create($data);
+        $this->repository->create($request->all());
 
         return redirect()->route('marcas.index');
     }

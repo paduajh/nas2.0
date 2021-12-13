@@ -13,19 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('admin/marcas/create', 'PreCadastro\marcaController@create')->name('marcas.create');
-Route::any('admin/marcas/search', 'PreCadastro\marcaController@search')->name('marcas.search');
-Route::get('admin/marcas/{url}','PreCadastro\marcaController@show')->name('marcas.show');
 
-Route::get('admin/marcas/{url}/edit','PreCadastro\marcaController@edit')->name('marcas.edit');
-Route::put('admin/marcas/{url}','PreCadastro\marcaController@update')->name('marcas.update');
+Route::prefix('admin')
+        ->namespace('PreCadastro')
+        ->group(function(){
+            Route::get('marcas/create', 'marcaController@create')->name('marcas.create');
+            Route::any('marcas/search', 'marcaController@search')->name('marcas.search');
+            Route::get('marcas/{url}','marcaController@show')->name('marcas.show');
+            Route::get('marcas/{url}/edit','marcaController@edit')->name('marcas.edit');
+            Route::put('marcas/{url}','marcaController@update')->name('marcas.update');
+            Route::delete('marcas/{url}','marcaController@destroy')->name('marcas.destroy');
+            Route::post('marcas', 'marcaController@store')->name('marcas.store');
+            Route::get('marcas', 'marcaController@index')->name('marcas.index');
+            Route::get('index', 'marcaController@index')->name('admin.index');
+        });
 
-Route::delete('admin/marcas/{url}','PreCadastro\marcaController@destroy')->name('marcas.destroy');
-Route::post('admin/marcas', 'Precadastro\marcaController@store')->name('marcas.store');
-Route::get('admin/marcas', 'PreCadastro\marcaController@index')->name('marcas.index');
-
-Route::get('admin/index', 'PreCadastro\marcaController@index')->name('admin.index');
-
+        
 Route::get('/', function () {
     return view('welcome');
 });
