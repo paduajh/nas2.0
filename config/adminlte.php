@@ -191,7 +191,7 @@ return [
     'dashboard_url' => 'home',
     'logout_url' => 'logout',
     'login_url' => 'login',
-    'register_url' => 'register',
+    'register_url' => null,
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
     'profile_url' => false,
@@ -230,7 +230,31 @@ return [
             'type'         => 'fullscreen-widget',
             'topnav_right' => true,
         ],
-
+        [
+            'text'    => 'ACL',
+            'icon'    => 'fas fa-list-ul',
+            'submenu' => [
+                [
+                    'text' => 'Perfis',
+                    'url'  => 'acl/roles',
+                    'icon' => 'fas fa-lock',
+                    'can'    => 'ver_perfis',
+                ],
+                [
+                    'text' => 'Permissões',
+                    'url'  => 'acl/permissions',
+                    'icon' => 'fas fa-lock',
+                    'can'    => 'ver_permissoes',
+                ],
+                [
+                    'text' => 'Usuários',
+                    'url'  => 'acl/users',
+                    'icon' => 'fas fa-users',
+                    'can'    => 'ver_usuarios',
+                ],
+                'can'  => ['ver_perfis', 'ver_permissoes', 'ver_usuarios'],
+            ]
+        ],
         // Sidebar items:
         [
             'text'    => 'Pre-Cadastro',
@@ -341,22 +365,22 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
+                    'asset' => true,
+                    'location' => 'vendor/datatables/js/jquery.dataTables.min.js',
                 ],
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js',
+                    'asset' => true,
+                    'location' => 'vendor/datatables/js/dataTables.bootstrap4.min.js',
                 ],
                 [
                     'type' => 'css',
-                    'asset' => false,
-                    'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
+                    'asset' => true,
+                    'location' => 'vendor/datatables/css/dataTables.bootstrap4.min.css',
                 ],
             ],
         ],
