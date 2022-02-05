@@ -37,15 +37,19 @@
                             <tr>
                                 <td>{{$role->name}}</td>
                                 <td>
+                                    
                                     <form action="{{route("roles.destroy",$role->id)}}" method="POST">
+                                        @can('edit_perfis')
                                         <a href="{{route("roles.edit",$role->id)}}" class="btn btn-warning btn-sm">
                                             Editar
                                         </a>
+                                        @endcan
                                         <a href="{{route("auditorias",[$role->id,'perfis'])}}" class="btn btn-info btn-sm">Auditar</a>  
                                         @csrf
                                         @method("DELETE")
                                         <button type="subit" class="btn btn-danger btn-sm">Excluir</button>
                                     </form>
+                                    
                                       
                                 </td>    
                             </tr>  

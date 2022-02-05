@@ -17,7 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::middleware(['auth'])->group(function() {
-    Route::prefix('config')->group(function() {
+    Route::prefix('config')->namespace('PreCadastro')
+        ->group(function() {
         //**Rotas Marcas*/
         Route::get('marcas/create', 'marcaController@create')->name('marcas.create');
         Route::any('marcas/search', 'marcaController@search')->name('marcas.search');
@@ -38,6 +39,7 @@ Route::middleware(['auth'])->group(function() {
         Route::post('modelos', 'modeloController@store')->name('modelo.store');
         Route::get('modelos', 'modeloController@index')->name('modelo.index');
     });
+    
     
     Route::prefix('acl')->group(function() {
         Route::resource('users', 'UserController');

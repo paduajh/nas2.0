@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Role;
 use App\Models\Permission;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RoleController extends Controller
 {
@@ -65,6 +66,7 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
+        abort_unless(Auth::user()->can("edit_perfis"),403,"Você não tem acesso a esse recurso");
         $permissoes = Permission::all();
 
         return view("role.edit",compact('role',"permissoes"));

@@ -262,12 +262,12 @@ return [
             'submenu' => [
                 [
                     'text' => 'Marca',
-                    'url'  => 'admin/marcas',
+                    'url'  => 'config/marcas',
                     'icon' => 'fas fa-car',
                 ],
                 [
                     'text' => 'Modelo',
-                    'url'  => 'admin/modelos',
+                    'url'  => 'config/modelos',
                     'icon' => 'fas fa-caravan',
                 ],
                 [

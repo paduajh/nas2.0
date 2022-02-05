@@ -5,7 +5,7 @@
 @section('content_header')
     <h1>Marcas <a href="{{route('marcas.create')}}" class="btn btn-dark">Cadastrar</a></h1>
 <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Dashboard</a></li>
+    <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
     <li class="breadcrumb-item"><a href="{{ route ('marcas.index') }}">Marcas</a></li>
 </ol>
 
