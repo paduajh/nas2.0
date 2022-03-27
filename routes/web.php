@@ -85,3 +85,8 @@ Route::group(['prefix' => 'precadastro'], function () {
 Route::group(['prefix' => 'precadastro'], function () {
     Route::resource('formaPagamentos', App\Http\Controllers\PreCadastro\FormaPagamentoController::class, ["as" => 'precadastro']);
 });
+
+
+Route::group(['prefix' => 'acl'], function () {
+    Route::resource('permissions', App\Http\Controllers\Acl\PermissionController::class, ["as" => 'acl']);
+});

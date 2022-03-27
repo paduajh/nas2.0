@@ -99,3 +99,10 @@
 </li>
 
 
+<li class="nav-item">
+    <a href="{{ route('acl.permissions.index') }}"
+       class="nav-link {{ Request::is('acl/permissions*') ? 'active' : '' }}">
+        <p>@lang('models/permissions.plural')</p>
+    </a>
+</li>
+
