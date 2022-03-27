@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\Acl;
 
-use App\DataTables\Acl\RoleDataTable;
+use Flash;
+use Response;
 use App\Http\Requests\Acl;
+use App\Models\Acl\Permission;
+use App\Repositories\RoleRepository;
+use App\DataTables\Acl\RoleDataTable;
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\Acl\CreateRoleRequest;
 use App\Http\Requests\Acl\UpdateRoleRequest;
-use App\Repositories\RoleRepository;
-use Flash;
-use App\Http\Controllers\AppBaseController;
-use Response;
 
 class RoleController extends AppBaseController
 {
@@ -40,7 +41,8 @@ class RoleController extends AppBaseController
      */
     public function create()
     {
-        return view('acl.roles.create');
+        $permissoes = Permission::all()->pluck('name','id');
+        return view('acl.roles.create',compact('permissoes'));
     }
 
     /**
@@ -55,7 +57,8 @@ class RoleController extends AppBaseController
         $input = $request->all();
 
         $role = $this->roleRepository->create($input);
-
+        $permissions = $request->input('permissoes', []);
+        $role->syncPermissions($permissions);
         Flash::success(__('messages.saved', ['model' => __('models/roles.singular')]));
 
         return redirect(route('acl.roles.index'));
@@ -97,8 +100,9 @@ class RoleController extends AppBaseController
 
             return redirect(route('acl.roles.index'));
         }
-
-        return view('acl.roles.edit')->with('role', $role);
+        $permissoes = Permission::all()->pluck('name','id');
+        $permissionSelected = $role->permissions->pluck('id');
+        return view('acl.roles.edit',compact('permissoes','permissionSelected'))->with('role', $role);
     }
 
     /**
@@ -120,7 +124,8 @@ class RoleController extends AppBaseController
         }
 
         $role = $this->roleRepository->update($request->all(), $id);
-
+        $permissions = $request->input('permissoes', []);
+        $role->syncPermissions($permissions);
         Flash::success(__('messages.updated', ['model' => __('models/roles.singular')]));
 
         return redirect(route('acl.roles.index'));

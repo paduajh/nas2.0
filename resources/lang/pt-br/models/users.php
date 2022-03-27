@@ -10,6 +10,7 @@ return array (
     'email' => 'Email',
     'email_verified_at' => 'Email verificado em',
     'password' => 'Senha',
+    'password_confirm' => 'Confirmar Senha',
     'remember_token' => 'Remember Token',
     'created_at' => 'Created At',
     'updated_at' => 'Updated At',

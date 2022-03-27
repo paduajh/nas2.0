@@ -1,8 +1,8 @@
 <?php
 
 return array (
-  'singular' => 'Permission',
-  'plural' => 'Permissions',
+  'singular' => 'Permissão',
+  'plural' => 'Permissões',
   'fields' =>
   array (
     'id' => 'Id',

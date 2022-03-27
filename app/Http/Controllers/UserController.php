@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\DataTables\UserDataTable;
+use Flash;
+use Response;
 use App\Http\Requests;
+use App\Models\Acl\Role;
+use App\Models\Acl\Permission;
+use App\DataTables\UserDataTable;
+use App\Repositories\UserRepository;
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateUserRequest;
-use App\Repositories\UserRepository;
-use Flash;
 use App\Http\Controllers\AppBaseController;
-use Response;
 
 class UserController extends AppBaseController
 {
@@ -40,7 +42,9 @@ class UserController extends AppBaseController
      */
     public function create()
     {
-        return view('users.create');
+        $roles = Role::all()->pluck('name','id');
+        $permissions = Permission::all()->pluck('name','id');
+        return view('users.create',compact('roles','permissions'));
     }
 
     /**
@@ -53,9 +57,9 @@ class UserController extends AppBaseController
     public function store(CreateUserRequest $request)
     {
         $input = $request->all();
-
+        $input['password'] = bcrypt($request->get('password'));
         $user = $this->userRepository->create($input);
-
+        $this->syncPermissions($request, $user);
         Flash::success(__('messages.saved', ['model' => __('models/users.singular')]));
 
         return redirect(route('users.index'));
@@ -97,8 +101,11 @@ class UserController extends AppBaseController
 
             return redirect(route('users.index'));
         }
-
-        return view('users.edit')->with('user', $user);
+        $roles = Role::all()->pluck('name','id');
+        $permissions = Permission::all()->pluck('name','id');
+        $rolesSelected = $user->roles->pluck('id');
+        $permissionsSelected = $user->permissions->pluck('id');
+        return view('users.edit',compact('roles','permissions','rolesSelected','permissionsSelected'))->with('user', $user);
     }
 
     /**
@@ -148,5 +155,24 @@ class UserController extends AppBaseController
         Flash::success(__('messages.deleted', ['model' => __('models/users.singular')]));
 
         return redirect(route('users.index'));
+    }
+
+    private function syncPermissions($request, $user)
+    {
+
+        $roles = $request->get('roles', []);
+        $permissions = $request->get('permissions', []);
+
+        $roles = Role::find($roles);
+
+        if( ! $user->hasAllRoles( $roles ) ) {
+            $user->permissions()->sync([]);
+        }
+        else {
+            $user->syncPermissions($permissions);
+        }
+
+        $user->syncRoles($roles);
+        return $user;
     }
 }
