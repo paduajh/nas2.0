@@ -55,3 +55,8 @@ Route::group(['prefix' => 'precadastro'], function () {
 Route::group(['prefix' => 'precadastro'], function () {
     Route::resource('tipoDeEnderecos', App\Http\Controllers\PreCadastro\TipoDeEnderecoController::class, ["as" => 'precadastro']);
 });
+
+
+Route::group(['prefix' => 'precadastro'], function () {
+    Route::resource('documentoAvisos', App\Http\Controllers\PreCadastro\DocumentoAvisoController::class, ["as" => 'precadastro']);
+});

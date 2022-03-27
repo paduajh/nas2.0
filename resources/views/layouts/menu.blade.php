@@ -48,3 +48,10 @@
     </a>
 </li>
 
+<li class="nav-item">
+    <a href="{{ route('precadastro.documentoAvisos.index') }}"
+       class="nav-link {{ Request::is('precadastro/documentoAvisos*') ? 'active' : '' }}">
+        <p>@lang('models/documentoAvisos.plural')</p>
+    </a>
+</li>
+
