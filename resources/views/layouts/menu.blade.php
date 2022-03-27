@@ -3,7 +3,7 @@
         <p>Pré Cadastros</p>
         <i class="fas fa-angle-left right"></i>
     </a>
-    <ul class="nav nav-treeview" style="display: none;">
+    <ul class="nav nav-treeview" style="display: no<i class="fas fa-angle-left right"></i>ne;">
         <li class="nav-item">
             <a href="{{ route('precadastro.marcas.index') }}"
             class="nav-link {{ Request::is('precadastro/marcas*') ? 'active' : '' }}">
