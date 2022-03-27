@@ -62,3 +62,10 @@
     </a>
 </li>
 
+<li class="nav-item">
+    <a href="{{ route('precadastro.grupoLancamentos.index') }}"
+       class="nav-link {{ Request::is('precadastro/grupoLancamentos*') ? 'active' : '' }}">
+        <p>@lang('models/grupoLancamentos.plural')</p>
+    </a>
+</li>
+
