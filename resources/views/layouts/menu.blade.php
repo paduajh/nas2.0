@@ -20,3 +20,17 @@
     </a>
 </li>
 
+<li class="nav-item">
+    <a href="{{ route('precadastro.tipoDeVeiculos.index') }}"
+       class="nav-link {{ Request::is('precadastro/tipoDeVeiculos*') ? 'active' : '' }}">
+        <p>@lang('models/tipoDeVeiculos.plural')</p>
+    </a>
+</li>
+
+<li class="nav-item">
+    <a href="{{ route('precadastro.tipoDeCarrocerias.index') }}"
+       class="nav-link {{ Request::is('precadastro/tipoDeCarrocerias*') ? 'active' : '' }}">
+        <p>@lang('models/tipoDeCarrocerias.plural')</p>
+    </a>
+</li>
+

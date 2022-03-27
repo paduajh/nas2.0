@@ -35,3 +35,13 @@ Route::group(['prefix' => 'precadastro'], function () {
 Route::group(['prefix' => 'precadastro'], function () {
     Route::resource('categorias', App\Http\Controllers\PreCadastro\CategoriaController::class, ["as" => 'precadastro']);
 });
+
+
+Route::group(['prefix' => 'precadastro'], function () {
+    Route::resource('tipoDeVeiculos', App\Http\Controllers\PreCadastro\TipoDeVeiculoController::class, ["as" => 'precadastro']);
+});
+
+
+Route::group(['prefix' => 'precadastro'], function () {
+    Route::resource('tipoDeCarrocerias', App\Http\Controllers\PreCadastro\TipoDeCarroceriaController::class, ["as" => 'precadastro']);
+});

@@ -52,6 +52,8 @@ return [
         'factory'           => database_path('factories/'),
 
         'view_provider'     => app_path('Providers/ViewServiceProvider.php'),
+
+        'models_locale_files' => base_path('resources/lang/pt-br/models/')
     ],
 
     /*
