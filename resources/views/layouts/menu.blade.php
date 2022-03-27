@@ -76,3 +76,17 @@
     </a>
 </li>
 
+<li class="nav-item">
+    <a href="{{ route('precadastro.contas.index') }}"
+       class="nav-link {{ Request::is('precadastro/contas*') ? 'active' : '' }}">
+        <p>@lang('models/contas.plural')</p>
+    </a>
+</li>
+
+<li class="nav-item">
+    <a href="{{ route('precadastro.formaPagamentos.index') }}"
+       class="nav-link {{ Request::is('precadastro/formaPagamentos*') ? 'active' : '' }}">
+        <p>@lang('models/formaPagamentos.plural')</p>
+    </a>
+</li>
+
