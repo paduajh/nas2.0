@@ -41,3 +41,10 @@
     </a>
 </li>
 
+<li class="nav-item">
+    <a href="{{ route('precadastro.tipoDeEnderecos.index') }}"
+       class="nav-link {{ Request::is('precadastro/tipoDeEnderecos*') ? 'active' : '' }}">
+        <p>@lang('models/tipoDeEnderecos.plural')</p>
+    </a>
+</li>
+

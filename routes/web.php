@@ -50,3 +50,8 @@ Route::group(['prefix' => 'precadastro'], function () {
 Route::group(['prefix' => 'precadastro'], function () {
     Route::resource('combustivels', App\Http\Controllers\PreCadastro\CombustivelController::class, ["as" => 'precadastro']);
 });
+
+
+Route::group(['prefix' => 'precadastro'], function () {
+    Route::resource('tipoDeEnderecos', App\Http\Controllers\PreCadastro\TipoDeEnderecoController::class, ["as" => 'precadastro']);
+});
