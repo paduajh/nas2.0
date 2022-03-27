@@ -13,9 +13,9 @@ return [
 
         'migration'         => database_path('migrations/'),
 
-        'model'             => app_path('Models/PreCadastro/'),
+        'model'             => app_path('Models/Acl/'),
 
-        'datatables'        => app_path('DataTables/PreCadastro/'),
+        'datatables'        => app_path('DataTables/Acl/'),
 
         'repository'        => app_path('Repositories/'),
 
@@ -23,11 +23,11 @@ return [
 
         'api_routes'        => base_path('routes/api.php'),
 
-        'request'           => app_path('Http/Requests/PreCadastro/'),
+        'request'           => app_path('Http/Requests/Acl/'),
 
         'api_request'       => app_path('Http/Requests/API/'),
 
-        'controller'        => app_path('Http/Controllers/PreCadastro/'),
+        'controller'        => app_path('Http/Controllers/Acl/'),
 
         'api_controller'    => app_path('Http/Controllers/API/'),
 
@@ -65,19 +65,19 @@ return [
 
     'namespace' => [
 
-        'model'             => 'App\Models\PreCadastro',
+        'model'             => 'App\Models\Acl',
 
-        'datatables'        => 'App\DataTables\PreCadastro',
+        'datatables'        => 'App\DataTables\Acl',
 
         'repository'        => 'App\Repositories',
 
-        'controller'        => 'App\Http\Controllers\PreCadastro',
+        'controller'        => 'App\Http\Controllers\Acl',
 
         'api_controller'    => 'App\Http\Controllers\API',
 
         'api_resource'      => 'App\Http\Resources',
 
-        'request'           => 'App\Http\Requests\PreCadastro',
+        'request'           => 'App\Http\Requests\Acl',
 
         'api_request'       => 'App\Http\Requests\API',
 
@@ -154,11 +154,11 @@ return [
 
     'prefixes' => [
 
-        'route' => 'precadastro',  // using admin will create route('admin.?.index') type routes
+        'route' => 'acl',  // using admin will create route('admin.?.index') type routes
 
         'path' => '',
 
-        'view' => 'precadastro',  // using backend will create return view('backend.?.index') type the backend views directory
+        'view' => 'acl',  // using backend will create return view('backend.?.index') type the backend views directory
 
         'public' => '',
     ],
