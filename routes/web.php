@@ -20,3 +20,18 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::group(['prefix' => 'precadastro'], function () {
+    Route::resource('marcas', App\Http\Controllers\PreCadastro\MarcaController::class, ["as" => 'precadastro']);
+});
+
+
+Route::group(['prefix' => 'precadastro'], function () {
+    Route::resource('modelos', App\Http\Controllers\PreCadastro\ModeloController::class, ["as" => 'precadastro']);
+});
+
+
+Route::group(['prefix' => 'precadastro'], function () {
+    Route::resource('categorias', App\Http\Controllers\PreCadastro\CategoriaController::class, ["as" => 'precadastro']);
+});

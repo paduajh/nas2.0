@@ -13,43 +13,43 @@ return [
 
         'migration'         => database_path('migrations/'),
 
-        'model'             => app_path('Models/PreCadastro'),
+        'model'             => app_path('Models/PreCadastro/'),
 
-        'datatables'        => app_path('DataTables/PreCadastro'),
+        'datatables'        => app_path('DataTables/PreCadastro/'),
 
-        'repository'        => app_path('Repositories/PreCadastro'),
+        'repository'        => app_path('Repositories/'),
 
         'routes'            => base_path('routes/web.php'),
 
         'api_routes'        => base_path('routes/api.php'),
 
-        'request'           => app_path('Http/Requests/PreCadastro'),
+        'request'           => app_path('Http/Requests/PreCadastro/'),
 
-        'api_request'       => app_path('Http/Requests/API/PreCadastro'),
+        'api_request'       => app_path('Http/Requests/API/'),
 
-        'controller'        => app_path('Http/Controllers/PreCadastro'),
+        'controller'        => app_path('Http/Controllers/PreCadastro/'),
 
-        'api_controller'    => app_path('Http/Controllers/API/PreCadastro'),
+        'api_controller'    => app_path('Http/Controllers/API/'),
 
-        'api_resource'      => app_path('Http/Resources/PreCadastro'),
+        'api_resource'      => app_path('Http/Resources/'),
 
-        'repository_test'   => base_path('tests/Repositories/PreCadastro'),
+        'repository_test'   => base_path('tests/Repositories/'),
 
-        'api_test'          => base_path('tests/APIs/PreCadastro'),
+        'api_test'          => base_path('tests/APIs/'),
 
-        'tests'             => base_path('tests/PreCadastro'),
+        'tests'             => base_path('tests/'),
 
-        'views'             => resource_path('views/pre_cadastro'),
+        'views'             => resource_path('views/'),
 
-        'schema_files'      => resource_path('model_schemas/pre_cadastro'),
+        'schema_files'      => resource_path('model_schemas/'),
 
         'templates_dir'     => resource_path('infyom/infyom-generator-templates/'),
 
-        'seeder'            => database_path('seeders/pre_cadastro'),
+        'seeder'            => database_path('seeders/'),
 
         'database_seeder'   => database_path('seeders/DatabaseSeeder.php'),
 
-        'factory'           => database_path('factories/pre_cadastro'),
+        'factory'           => database_path('factories/'),
 
         'view_provider'     => app_path('Providers/ViewServiceProvider.php'),
     ],
@@ -67,27 +67,27 @@ return [
 
         'datatables'        => 'App\DataTables\PreCadastro',
 
-        'repository'        => 'App\Repositories\PreCadastro',
+        'repository'        => 'App\Repositories',
 
         'controller'        => 'App\Http\Controllers\PreCadastro',
 
-        'api_controller'    => 'App\Http\Controllers\API\PreCadastro',
+        'api_controller'    => 'App\Http\Controllers\API',
 
-        'api_resource'      => 'App\Http\Resources\PreCadastro',
+        'api_resource'      => 'App\Http\Resources',
 
         'request'           => 'App\Http\Requests\PreCadastro',
 
-        'api_request'       => 'App\Http\Requests\API\PreCadastro',
+        'api_request'       => 'App\Http\Requests\API',
 
-        'seeder'            => 'Database\Seeders\PreCadastro',
+        'seeder'            => 'Database\Seeders',
 
-        'factory'           => 'Database\Factories\PreCadastro',
+        'factory'           => 'Database\Factories',
 
-        'repository_test'   => 'Tests\Repositories\PreCadastro',
+        'repository_test'   => 'Tests\Repositories',
 
-        'api_test'          => 'Tests\APIs\PreCadastro',
+        'api_test'          => 'Tests\APIs',
 
-        'tests'             => 'Tests\PreCadastro',
+        'tests'             => 'Tests',
     ],
 
     /*
@@ -136,7 +136,7 @@ return [
 
         'tables_searchable_default' => true,
 
-        'repository_pattern' => false,
+        'repository_pattern' => true,
 
         'resources' => false,
 

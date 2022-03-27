@@ -59,8 +59,8 @@ return [
     'parameters'    => [
         'dom'     => 'Bfrtip',
         'order'   => [[0, 'desc']],
+        'langague' => ['url' => '//cdn.datatables.net/plug-ins/1.11.5/i18n/pt-BR.json'],
         'buttons' => [
-            'create',
             'export',
             'print',
             'reset',
