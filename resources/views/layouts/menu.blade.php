@@ -34,3 +34,10 @@
     </a>
 </li>
 
+<li class="nav-item">
+    <a href="{{ route('precadastro.combustivels.index') }}"
+       class="nav-link {{ Request::is('precadastro/combustivels*') ? 'active' : '' }}">
+        <p>@lang('models/combustivels.plural')</p>
+    </a>
+</li>
+
