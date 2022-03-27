@@ -95,3 +95,6 @@ Route::group(['prefix' => 'acl'], function () {
 Route::group(['prefix' => 'acl'], function () {
     Route::resource('roles', App\Http\Controllers\Acl\RoleController::class, ["as" => 'acl']);
 });
+
+
+Route::resource('users', App\Http\Controllers\UserController::class);

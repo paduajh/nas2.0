@@ -98,18 +98,33 @@
     </ul>
 </li>
 
-
 <li class="nav-item">
-    <a href="{{ route('acl.permissions.index') }}"
-       class="nav-link {{ Request::is('acl/permissions*') ? 'active' : '' }}">
-        <p>@lang('models/permissions.plural')</p>
+    <a href="#" class="nav-link">
+        <p>Acl</p>
+        <i class="fas fa-angle-left right"></i>
     </a>
+    <ul class="nav nav-treeview" style="display: no<i class="fas fa-angle-left right"></i>
+        <li class="nav-item">
+            <a href="{{ route('acl.permissions.index') }}"
+            class="nav-link {{ Request::is('acl/permissions*') ? 'active' : '' }}">
+                <p>@lang('models/permissions.plural')</p>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a href="{{ route('acl.roles.index') }}"
+            class="nav-link {{ Request::is('acl/roles*') ? 'active' : '' }}">
+                <p>@lang('models/roles.plural')</p>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a href="{{ route('users.index') }}"
+            class="nav-link {{ Request::is('users*') ? 'active' : '' }}">
+                <p>@lang('models/users.plural')</p>
+            </a>
+        </li>
+    </ul>
 </li>
 
-<li class="nav-item">
-    <a href="{{ route('acl.roles.index') }}"
-       class="nav-link {{ Request::is('acl/roles*') ? 'active' : '' }}">
-        <p>@lang('models/roles.plural')</p>
-    </a>
-</li>
 

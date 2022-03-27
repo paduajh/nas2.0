@@ -13,9 +13,9 @@ return [
 
         'migration'         => database_path('migrations/'),
 
-        'model'             => app_path('Models/Acl/'),
+        'model'             => app_path('Models/'),
 
-        'datatables'        => app_path('DataTables/Acl/'),
+        'datatables'        => app_path('DataTables/'),
 
         'repository'        => app_path('Repositories/'),
 
@@ -23,11 +23,11 @@ return [
 
         'api_routes'        => base_path('routes/api.php'),
 
-        'request'           => app_path('Http/Requests/Acl/'),
+        'request'           => app_path('Http/Requests/'),
 
         'api_request'       => app_path('Http/Requests/API/'),
 
-        'controller'        => app_path('Http/Controllers/Acl/'),
+        'controller'        => app_path('Http/Controllers/'),
 
         'api_controller'    => app_path('Http/Controllers/API/'),
 
@@ -65,19 +65,19 @@ return [
 
     'namespace' => [
 
-        'model'             => 'App\Models\Acl',
+        'model'             => 'App\Models',
 
-        'datatables'        => 'App\DataTables\Acl',
+        'datatables'        => 'App\DataTables',
 
         'repository'        => 'App\Repositories',
 
-        'controller'        => 'App\Http\Controllers\Acl',
+        'controller'        => 'App\Http\Controllers',
 
         'api_controller'    => 'App\Http\Controllers\API',
 
         'api_resource'      => 'App\Http\Resources',
 
-        'request'           => 'App\Http\Requests\Acl',
+        'request'           => 'App\Http\Requests',
 
         'api_request'       => 'App\Http\Requests\API',
 
@@ -154,11 +154,11 @@ return [
 
     'prefixes' => [
 
-        'route' => 'acl',  // using admin will create route('admin.?.index') type routes
+        'route' => '',  // using admin will create route('admin.?.index') type routes
 
         'path' => '',
 
-        'view' => 'acl',  // using backend will create return view('backend.?.index') type the backend views directory
+        'view' => '',  // using backend will create return view('backend.?.index') type the backend views directory
 
         'public' => '',
     ],
