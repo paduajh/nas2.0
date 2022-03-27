@@ -7,20 +7,20 @@ use Eloquent as Model;
 
 
 /**
- * Class Permission
+ * Class Role
  * @package App\Models\Acl
- * @version March 27, 2022, 8:32 pm UTC
+ * @version March 27, 2022, 8:36 pm UTC
  *
- * @property \App\Models\Acl\ModelHasPermission $modelHasPermission
- * @property \Illuminate\Database\Eloquent\Collection $roles
+ * @property \App\Models\Acl\ModelHasRole $modelHasRole
+ * @property \Illuminate\Database\Eloquent\Collection $permissions
  * @property string $name
  * @property string $guard_name
  */
-class Permission extends \Spatie\Permission\Models\Permission
+class Role extends \Spatie\Permission\Models\Role
 {
 
 
-    public $table = 'permissions';
+    public $table = 'roles';
 
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -59,16 +59,16 @@ class Permission extends \Spatie\Permission\Models\Permission
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      **/
-    public function modelHasPermission()
+    public function modelHasRole()
     {
-        return $this->hasOne(\App\Models\Acl\ModelHasPermission::class);
+        return $this->hasOne(\App\Models\Acl\ModelHasRole::class);
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      **/
-    // public function roles()
+    // public function permissions()
     // {
-    //     return $this->belongsToMany(\App\Models\Acl\Role::class, 'role_has_permissions');
+    //     return $this->belongsToMany(\App\Models\Acl\Permission::class, 'role_has_permissions');
     // }
 }

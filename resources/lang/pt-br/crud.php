@@ -3,5 +3,6 @@
 return [
     'add_new' => 'Novo',
     'cancel' => 'Cancelar',
-    'action' => 'Ações'
+    'action' => 'Ações',
+    'back' => 'Voltar'
 ];

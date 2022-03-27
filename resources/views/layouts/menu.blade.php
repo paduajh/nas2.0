@@ -106,3 +106,10 @@
     </a>
 </li>
 
+<li class="nav-item">
+    <a href="{{ route('acl.roles.index') }}"
+       class="nav-link {{ Request::is('acl/roles*') ? 'active' : '' }}">
+        <p>@lang('models/roles.plural')</p>
+    </a>
+</li>
+

@@ -90,3 +90,8 @@ Route::group(['prefix' => 'precadastro'], function () {
 Route::group(['prefix' => 'acl'], function () {
     Route::resource('permissions', App\Http\Controllers\Acl\PermissionController::class, ["as" => 'acl']);
 });
+
+
+Route::group(['prefix' => 'acl'], function () {
+    Route::resource('roles', App\Http\Controllers\Acl\RoleController::class, ["as" => 'acl']);
+});
