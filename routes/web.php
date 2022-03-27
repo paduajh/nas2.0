@@ -70,3 +70,8 @@ Route::group(['prefix' => 'precadastro'], function () {
 Route::group(['prefix' => 'precadastro'], function () {
     Route::resource('grupoLancamentos', App\Http\Controllers\PreCadastro\GrupoLancamentoController::class, ["as" => 'precadastro']);
 });
+
+
+Route::group(['prefix' => 'precadastro'], function () {
+    Route::resource('centroCustos', App\Http\Controllers\PreCadastro\CentroCustoController::class, ["as" => 'precadastro']);
+});

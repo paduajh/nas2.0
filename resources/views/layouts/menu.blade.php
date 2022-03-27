@@ -69,3 +69,10 @@
     </a>
 </li>
 
+<li class="nav-item">
+    <a href="{{ route('precadastro.centroCustos.index') }}"
+       class="nav-link {{ Request::is('precadastro/centroCustos*') ? 'active' : '' }}">
+        <p>@lang('models/centroCustos.plural')</p>
+    </a>
+</li>
+
