@@ -55,3 +55,10 @@
     </a>
 </li>
 
+<li class="nav-item">
+    <a href="{{ route('precadastro.naturezaSinistros.index') }}"
+       class="nav-link {{ Request::is('precadastro/naturezaSinistros*') ? 'active' : '' }}">
+        <p>@lang('models/naturezaSinistros.plural')</p>
+    </a>
+</li>
+

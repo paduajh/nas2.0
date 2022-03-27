@@ -60,3 +60,8 @@ Route::group(['prefix' => 'precadastro'], function () {
 Route::group(['prefix' => 'precadastro'], function () {
     Route::resource('documentoAvisos', App\Http\Controllers\PreCadastro\DocumentoAvisoController::class, ["as" => 'precadastro']);
 });
+
+
+Route::group(['prefix' => 'precadastro'], function () {
+    Route::resource('naturezaSinistros', App\Http\Controllers\PreCadastro\NaturezaSinistroController::class, ["as" => 'precadastro']);
+});
