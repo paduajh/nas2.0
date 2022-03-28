@@ -4,6 +4,7 @@
     <script>
         function downloadData(id) {
             let baseUrl = window.location.origin;
+
             $.ajax({
                 type: "GET",
                 url: `${baseUrl}/audits/${id}/download`,

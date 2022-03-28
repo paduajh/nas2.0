@@ -35,7 +35,6 @@ class AuditController extends AppBaseController
 
     public function downloadData($id) {
         $auditorias = DB::table("audits")->where("id",'=',$id)->get()->first();
-        dd($auditorias);
         return response()->json($auditorias,200);
     }
 

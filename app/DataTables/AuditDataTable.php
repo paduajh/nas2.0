@@ -3,6 +3,7 @@
 namespace App\DataTables;
 
 use App\Models\Audit;
+use Illuminate\Support\Carbon;
 use Yajra\DataTables\Html\Column;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\EloquentDataTable;
@@ -20,7 +21,12 @@ class AuditDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'audits.datatables_actions');
+        return $dataTable
+        ->addColumn('action', 'audits.datatables_actions')
+        ->editColumn('created_at', function($audit) {
+            return Carbon::createFromFormat('Y-m-d H:i:s',$audit['created_at'])->format('d/m/Y H:i');
+        });
+
     }
 
     /**
@@ -34,7 +40,8 @@ class AuditDataTable extends DataTable
         return Audit::join('users','users.id','=','audits.user_id')
                 ->select('audits.id','users.name','audits.event','audits.url','audits.ip_address','audits.created_at')
                 ->where("auditable_type","=",$this->tipoWhere)
-                ->where("auditable_id","=",$this->id);
+                ->where("auditable_id","=",$this->id)
+                ->orderBy('audits.created_at','DESC');
 
     }
 
@@ -50,7 +57,7 @@ class AuditDataTable extends DataTable
             ->minifiedAjax()
             ->addAction(['width' => '120px', 'printable' => false, 'title' => __('crud.action')])
             ->parameters([
-                'dom'       => 'Bfrtip',
+                'dom'       => 'Brtip',
                 'stateSave' => true,
                 'order'     => [[0, 'desc']],
                 'buttons'   => [

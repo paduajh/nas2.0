@@ -99,7 +99,7 @@ Route::group(['prefix' => 'acl'], function () {
 
 Route::resource('users', App\Http\Controllers\UserController::class);
 
-
-Route::get("audits/{tipo}/{id}",App\Http\Controllers\AuditController::class.'@index')->name("audits");
 Route::get("audits/{id}/download",App\Http\Controllers\AuditController::class.'@downloadData')->name("audits.download");
-// Route::resource('audits', App\Http\Controllers\AuditController::class);
+Route::get("audits/{tipo}/{id}",App\Http\Controllers\AuditController::class.'@index')->name("audits");
+
+
