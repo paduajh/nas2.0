@@ -1,0 +1,25 @@
+{
+  "draw": 0,
+  "recordsTotal": 0,
+  "recordsFiltered": 0,
+  "data": [],
+  "queries": [
+    {
+      "query": "select count(*) as aggregate from `audits` inner join `users` on `users`.`id` = `audits`.`user_id` where `auditable_type` = ? and `auditable_id` = ?",
+      "bindings": [
+        "",
+        "download"
+      ],
+      "time": 1.56
+    },
+    {
+      "query": "select `audits`.`id`, `users`.`name`, `audits`.`event`, `audits`.`url`, `audits`.`ip_address`, `audits`.`created_at` from `audits` inner join `users` on `users`.`id` = `audits`.`user_id` where `auditable_type` = ? and `auditable_id` = ?",
+      "bindings": [
+        "",
+        "download"
+      ],
+      "time": 0.31
+    }
+  ],
+  "input": []
+}
