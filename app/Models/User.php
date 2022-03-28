@@ -11,6 +11,7 @@ use OwenIt\Auditing\Contracts\Auditable;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use OwenIt\Auditing\Auditable as AuditableTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 /**
  * Class User
@@ -23,9 +24,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property string $password
  * @property string $remember_token
  */
-class User extends Authenticatable
+class User extends Authenticatable implements Auditable
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles;
+    use AuditableTrait, HasApiTokens, HasFactory, Notifiable, HasRoles;
 
     public $table = 'users';
 
