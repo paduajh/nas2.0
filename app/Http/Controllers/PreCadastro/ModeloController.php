@@ -9,15 +9,18 @@ use App\Http\Requests\PreCadastro\UpdateModeloRequest;
 use App\Repositories\ModeloRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use App\Traits\Authorizable;
 use Response;
 
 class ModeloController extends AppBaseController
 {
+    use Authorizable;
     /** @var ModeloRepository $modeloRepository*/
     private $modeloRepository;
 
     public function __construct(ModeloRepository $modeloRepo)
     {
+        $this->authorize = 'modelo';
         $this->modeloRepository = $modeloRepo;
     }
 

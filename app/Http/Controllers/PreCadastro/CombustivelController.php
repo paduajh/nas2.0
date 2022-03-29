@@ -9,15 +9,18 @@ use App\Http\Requests\PreCadastro\UpdateCombustivelRequest;
 use App\Repositories\CombustivelRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use App\Traits\Authorizable;
 use Response;
 
 class CombustivelController extends AppBaseController
 {
+    use Authorizable;
     /** @var CombustivelRepository $combustivelRepository*/
     private $combustivelRepository;
 
     public function __construct(CombustivelRepository $combustivelRepo)
     {
+        $this->authorize = 'combustivel';
         $this->combustivelRepository = $combustivelRepo;
     }
 
@@ -30,6 +33,7 @@ class CombustivelController extends AppBaseController
      */
     public function index(CombustivelDataTable $combustivelDataTable)
     {
+        $this->checkPermission('list_combustivel');
         return $combustivelDataTable->render('precadastro.combustivels.index');
     }
 

@@ -9,15 +9,18 @@ use App\Http\Requests\PreCadastro\UpdateTipoDeEnderecoRequest;
 use App\Repositories\TipoDeEnderecoRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use App\Traits\Authorizable;
 use Response;
 
 class TipoDeEnderecoController extends AppBaseController
 {
+    use Authorizable;
     /** @var TipoDeEnderecoRepository $tipoDeEnderecoRepository*/
     private $tipoDeEnderecoRepository;
 
     public function __construct(TipoDeEnderecoRepository $tipoDeEnderecoRepo)
     {
+        $this->authorize = 'tipodeendereco';
         $this->tipoDeEnderecoRepository = $tipoDeEnderecoRepo;
     }
 

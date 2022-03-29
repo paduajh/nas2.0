@@ -9,15 +9,18 @@ use App\Http\Requests\PreCadastro\UpdateTipoDeVeiculoRequest;
 use App\Repositories\TipoDeVeiculoRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use App\Traits\Authorizable;
 use Response;
 
 class TipoDeVeiculoController extends AppBaseController
 {
+    use Authorizable;
     /** @var TipoDeVeiculoRepository $tipoDeVeiculoRepository*/
     private $tipoDeVeiculoRepository;
 
     public function __construct(TipoDeVeiculoRepository $tipoDeVeiculoRepo)
     {
+        $this->authorize = 'tipodeveiculo';
         $this->tipoDeVeiculoRepository = $tipoDeVeiculoRepo;
     }
 

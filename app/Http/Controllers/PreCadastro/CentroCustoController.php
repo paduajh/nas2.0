@@ -9,15 +9,18 @@ use App\Http\Requests\PreCadastro\UpdateCentroCustoRequest;
 use App\Repositories\CentroCustoRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use App\Traits\Authorizable;
 use Response;
 
 class CentroCustoController extends AppBaseController
 {
+    use Authorizable;
     /** @var CentroCustoRepository $centroCustoRepository*/
     private $centroCustoRepository;
 
     public function __construct(CentroCustoRepository $centroCustoRepo)
     {
+        $this->authorize = 'centrocusto';
         $this->centroCustoRepository = $centroCustoRepo;
     }
 
@@ -30,6 +33,7 @@ class CentroCustoController extends AppBaseController
      */
     public function index(CentroCustoDataTable $centroCustoDataTable)
     {
+        $this->checkPermission('list_centrocusto');
         return $centroCustoDataTable->render('precadastro.centro_custos.index');
     }
 
@@ -40,6 +44,7 @@ class CentroCustoController extends AppBaseController
      */
     public function create()
     {
+        $this->checkPermission('create_centrocusto');
         return view('precadastro.centro_custos.create');
     }
 
@@ -52,6 +57,7 @@ class CentroCustoController extends AppBaseController
      */
     public function store(CreateCentroCustoRequest $request)
     {
+        $this->checkPermission('create_centrocusto');
         $input = $request->all();
 
         $centroCusto = $this->centroCustoRepository->create($input);
@@ -70,6 +76,7 @@ class CentroCustoController extends AppBaseController
      */
     public function show($id)
     {
+        $this->checkPermission('show_centrocusto');
         $centroCusto = $this->centroCustoRepository->find($id);
 
         if (empty($centroCusto)) {
@@ -90,6 +97,7 @@ class CentroCustoController extends AppBaseController
      */
     public function edit($id)
     {
+        $this->checkPermission('edit_centrocusto');
         $centroCusto = $this->centroCustoRepository->find($id);
 
         if (empty($centroCusto)) {
@@ -111,6 +119,7 @@ class CentroCustoController extends AppBaseController
      */
     public function update($id, UpdateCentroCustoRequest $request)
     {
+        $this->checkPermission('edit_centrocusto');
         $centroCusto = $this->centroCustoRepository->find($id);
 
         if (empty($centroCusto)) {
@@ -135,6 +144,7 @@ class CentroCustoController extends AppBaseController
      */
     public function destroy($id)
     {
+        $this->checkPermission('delete_centrocusto');
         $centroCusto = $this->centroCustoRepository->find($id);
 
         if (empty($centroCusto)) {

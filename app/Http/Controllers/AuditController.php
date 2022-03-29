@@ -21,14 +21,16 @@ class AuditController extends AppBaseController
      */
     public function index(AuditDataTable $auditDataTable,$tipo,$id)
     {
+
         $auditaveis = config('audit.auditables',[]);
-        $tipoWhere = isset($auditaveis[$tipo]) ? $auditaveis[$tipo] : '';
+        $modelName = isset($auditaveis[$tipo]) ? $auditaveis[$tipo] : '';
+
         $nome = "Auditorias do registro $id ($tipo)";
 
         return $auditDataTable
                     ->with([
                         'id' => $id,
-                        'tipoWhere' => $tipoWhere
+                        'tipoWhere' => $modelName
                     ])
                     ->render('audits.index');
     }

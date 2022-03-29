@@ -9,15 +9,18 @@ use App\Http\Requests\PreCadastro\UpdateGrupoLancamentoRequest;
 use App\Repositories\GrupoLancamentoRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use App\Traits\Authorizable;
 use Response;
 
 class GrupoLancamentoController extends AppBaseController
 {
+    use Authorizable;
     /** @var GrupoLancamentoRepository $grupoLancamentoRepository*/
     private $grupoLancamentoRepository;
 
     public function __construct(GrupoLancamentoRepository $grupoLancamentoRepo)
     {
+        $this->authorize = 'grupolancamento';
         $this->grupoLancamentoRepository = $grupoLancamentoRepo;
     }
 

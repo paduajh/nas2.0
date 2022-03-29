@@ -9,17 +9,21 @@ use App\Models\Acl\Role;
 use App\Models\Acl\Permission;
 use App\DataTables\UserDataTable;
 use App\Repositories\UserRepository;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Controllers\AppBaseController;
+use App\Traits\Authorizable;
 
 class UserController extends AppBaseController
 {
+    use Authorizable;
     /** @var UserRepository $userRepository*/
     private $userRepository;
 
     public function __construct(UserRepository $userRepo)
     {
+        $this->authorize = 'user';
         $this->userRepository = $userRepo;
     }
 

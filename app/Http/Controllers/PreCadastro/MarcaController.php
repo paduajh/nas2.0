@@ -9,15 +9,18 @@ use App\Http\Requests\PreCadastro\UpdateMarcaRequest;
 use App\Repositories\MarcaRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use App\Traits\Authorizable;
 use Response;
 
 class MarcaController extends AppBaseController
 {
+    use Authorizable;
     /** @var MarcaRepository $marcaRepository*/
     private $marcaRepository;
 
     public function __construct(MarcaRepository $marcaRepo)
     {
+        $this->authorize = 'marca';
         $this->marcaRepository = $marcaRepo;
     }
 

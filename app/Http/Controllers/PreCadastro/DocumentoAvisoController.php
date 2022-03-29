@@ -9,15 +9,18 @@ use App\Http\Requests\PreCadastro\UpdateDocumentoAvisoRequest;
 use App\Repositories\DocumentoAvisoRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use App\Traits\Authorizable;
 use Response;
 
 class DocumentoAvisoController extends AppBaseController
 {
+    use Authorizable;
     /** @var DocumentoAvisoRepository $documentoAvisoRepository*/
     private $documentoAvisoRepository;
 
     public function __construct(DocumentoAvisoRepository $documentoAvisoRepo)
     {
+        $this->authorize = 'documentoaviso';
         $this->documentoAvisoRepository = $documentoAvisoRepo;
     }
 

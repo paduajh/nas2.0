@@ -32,6 +32,11 @@
                         @yield('message')
                     </div>
                 </div>
+                <div class="ml-4 text-lg text-gray-500 uppercase tracking-wider pt-8">
+                    <a href="{{URL::previous()}}">
+                        Voltar
+                    </a>
+                </div>
             </div>
         </div>
     </body>

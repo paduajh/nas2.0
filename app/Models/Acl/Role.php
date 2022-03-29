@@ -64,11 +64,4 @@ class Role extends \Spatie\Permission\Models\Role
         return $this->hasOne(\App\Models\Acl\ModelHasRole::class);
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     **/
-    // public function permissions()
-    // {
-    //     return $this->belongsToMany(\App\Models\Acl\Permission::class, 'role_has_permissions');
-    // }
 }

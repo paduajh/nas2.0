@@ -9,15 +9,18 @@ use App\Http\Requests\PreCadastro\UpdateFormaPagamentoRequest;
 use App\Repositories\FormaPagamentoRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use App\Traits\Authorizable;
 use Response;
 
 class FormaPagamentoController extends AppBaseController
 {
+    use Authorizable;
     /** @var FormaPagamentoRepository $formaPagamentoRepository*/
     private $formaPagamentoRepository;
 
     public function __construct(FormaPagamentoRepository $formaPagamentoRepo)
     {
+        $this->authorize = 'formapagamento';
         $this->formaPagamentoRepository = $formaPagamentoRepo;
     }
 

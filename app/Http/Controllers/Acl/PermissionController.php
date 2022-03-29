@@ -9,15 +9,18 @@ use App\Http\Requests\Acl\UpdatePermissionRequest;
 use App\Repositories\PermissionRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use App\Traits\Authorizable;
 use Response;
 
 class PermissionController extends AppBaseController
 {
+    use Authorizable;
     /** @var PermissionRepository $permissionRepository*/
     private $permissionRepository;
 
     public function __construct(PermissionRepository $permissionRepo)
     {
+        $this->authorize = 'permission';
         $this->permissionRepository = $permissionRepo;
     }
 

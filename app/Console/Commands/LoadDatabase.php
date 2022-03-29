@@ -46,9 +46,8 @@ class LoadDatabase extends Command
         ])->each->__invoke();
 
         $this->call('create-permissions');
-        // collect([
-        //     new \Database\States\GaranteAcessos,
-        //     new \Database\States\GaranteAtribuicaoAcessos
-        // ])->each->__invoke();
+        collect([
+            new \Database\States\GaranteAtribuicaoAcessos
+        ])->each->__invoke();
     }
 }

@@ -9,15 +9,18 @@ use App\Http\Requests\PreCadastro\UpdateCategoriaRequest;
 use App\Repositories\CategoriaRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use App\Traits\Authorizable;
 use Response;
 
 class CategoriaController extends AppBaseController
 {
+    use Authorizable;
     /** @var CategoriaRepository $categoriaRepository*/
     private $categoriaRepository;
 
     public function __construct(CategoriaRepository $categoriaRepo)
     {
+        $this->authorize = 'categoria';
         $this->categoriaRepository = $categoriaRepo;
     }
 
@@ -30,6 +33,7 @@ class CategoriaController extends AppBaseController
      */
     public function index(CategoriaDataTable $categoriaDataTable)
     {
+        $this->checkPermission('list_categoria');
         return $categoriaDataTable->render('precadastro.categorias.index');
     }
 
@@ -40,6 +44,7 @@ class CategoriaController extends AppBaseController
      */
     public function create()
     {
+        $this->checkPermission('create_categoria');
         return view('precadastro.categorias.create');
     }
 
@@ -52,6 +57,7 @@ class CategoriaController extends AppBaseController
      */
     public function store(CreateCategoriaRequest $request)
     {
+        $this->checkPermission('create_categoria');
         $input = $request->all();
 
         $categoria = $this->categoriaRepository->create($input);
@@ -70,6 +76,7 @@ class CategoriaController extends AppBaseController
      */
     public function show($id)
     {
+        $this->checkPermission('show_categoria');
         $categoria = $this->categoriaRepository->find($id);
 
         if (empty($categoria)) {
@@ -90,6 +97,7 @@ class CategoriaController extends AppBaseController
      */
     public function edit($id)
     {
+        $this->checkPermission('edit_categoria');
         $categoria = $this->categoriaRepository->find($id);
 
         if (empty($categoria)) {
@@ -111,6 +119,7 @@ class CategoriaController extends AppBaseController
      */
     public function update($id, UpdateCategoriaRequest $request)
     {
+        $this->checkPermission('edit_categoria');
         $categoria = $this->categoriaRepository->find($id);
 
         if (empty($categoria)) {
@@ -135,6 +144,7 @@ class CategoriaController extends AppBaseController
      */
     public function destroy($id)
     {
+        $this->checkPermission('delete_categoria');
         $categoria = $this->categoriaRepository->find($id);
 
         if (empty($categoria)) {

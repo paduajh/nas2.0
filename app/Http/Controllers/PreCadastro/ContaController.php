@@ -9,15 +9,18 @@ use App\Http\Requests\PreCadastro\UpdateContaRequest;
 use App\Repositories\ContaRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use App\Traits\Authorizable;
 use Response;
 
 class ContaController extends AppBaseController
 {
+    use Authorizable;
     /** @var ContaRepository $contaRepository*/
     private $contaRepository;
 
     public function __construct(ContaRepository $contaRepo)
     {
+        $this->authorize = 'conta';
         $this->contaRepository = $contaRepo;
     }
 

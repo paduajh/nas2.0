@@ -42,6 +42,7 @@ class CreatePermission extends Command
     public function handle()
     {
         $models = [];
+        $models  = array_merge($models,$this->getModels(app_path() . "/Models"));
         $models  = array_merge($models,$this->getModels(app_path() . "/Models/Acl"));
         $models  = array_merge($models,$this->getModels(app_path() . "/Models/PreCadastro"));
 
@@ -51,12 +52,13 @@ class CreatePermission extends Command
             'show_',
             'list_',
             'delete_',
-            'restore_'
+            'restore_',
+            'audit_'
         ];
         $insertData = [];
 
-        $perfilModel = Role::where('name','admin')->first();
-
+        $perfilAdmin = Role::where('name','admin')->first();
+        $perfilDefault = Role::where('name','default')->first();
         foreach($models as $model ) {
 
             foreach($defaultPermissions as $defaultPermission) {
@@ -72,7 +74,9 @@ class CreatePermission extends Command
         DB::table('permissions')->upsert($insertData,['name','guard_name']);
 
         $permissions = Permission::all()->pluck('id');
-        $perfilModel->syncPermissions($permissions);
+        $defaultPermissions = Permission::where('name','LIKE','%list_%')->get()->pluck('id');
+        $perfilAdmin->syncPermissions($permissions);
+        $perfilDefault->syncPermissions($defaultPermissions);
     }
 
     private function getModels($path){

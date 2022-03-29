@@ -9,15 +9,18 @@ use App\Http\Requests\PreCadastro\UpdateNaturezaSinistroRequest;
 use App\Repositories\NaturezaSinistroRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use App\Traits\Authorizable;
 use Response;
 
 class NaturezaSinistroController extends AppBaseController
 {
+    use Authorizable;
     /** @var NaturezaSinistroRepository $naturezaSinistroRepository*/
     private $naturezaSinistroRepository;
 
     public function __construct(NaturezaSinistroRepository $naturezaSinistroRepo)
     {
+        $this->authorize = 'naturezasinistro';
         $this->naturezaSinistroRepository = $naturezaSinistroRepo;
     }
 

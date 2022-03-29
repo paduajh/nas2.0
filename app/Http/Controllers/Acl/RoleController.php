@@ -11,14 +11,17 @@ use App\DataTables\Acl\RoleDataTable;
 use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\Acl\CreateRoleRequest;
 use App\Http\Requests\Acl\UpdateRoleRequest;
+use App\Traits\Authorizable;
 
 class RoleController extends AppBaseController
 {
+    use Authorizable;
     /** @var RoleRepository $roleRepository*/
     private $roleRepository;
 
     public function __construct(RoleRepository $roleRepo)
     {
+        $this->authorize = 'role';
         $this->roleRepository = $roleRepo;
     }
 
